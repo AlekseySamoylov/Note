@@ -1,5 +1,7 @@
 package com.alekseysamoylov.note.service.pages;
 
+import com.alekseysamoylov.note.model.WebMessage;
+
 import java.util.List;
 
 /**

@@ -38,4 +38,14 @@ public class MessageRepositoryImpl implements MessageRepository{
     public List<Message> getAllMessages() {
         return (List<Message>) template.find("from Message");
     }
+
+    @Override
+    public void update(Message message) {
+        template.update(message);
+    }
+
+    @Override
+    public void delete(Long id) {
+        template.delete(getMessage(id));
+    }
 }

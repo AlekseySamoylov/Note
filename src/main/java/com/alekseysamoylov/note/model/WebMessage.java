@@ -12,7 +12,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class WebMessage {
+    private Long id;
     private Long userId;
+    private String userName;
     private String title;
     private String textBody;
 }

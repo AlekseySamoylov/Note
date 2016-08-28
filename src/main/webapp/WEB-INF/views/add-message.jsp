@@ -21,24 +21,25 @@
 
         <ul class="nav navbar-nav">
 
-            <li><a class="btn btn-default" href="<spring:url value="/"/>">Вернуться</a></li>
+            <li><a class="btn btn-default" href="<spring:url value="/user-messages"/>">Вернуться</a></li>
 
         </ul>
     </div>
 </nav>
 <div class="container">
-    <p>Оборачивайте код в теги &lt pre &gt и &lt xmp &gt Your code &lt /pre &gt и &lt /xmp &gt</p>
+    <p>Оборачивайте код в теги &ltpre&gt и &ltxmp&gt Your code &lt/xmp&gt и &lt/pre&gt</p>
     <spring:url value="/save-message" var="saveUrl"/>
     <form:form action="${saveUrl}" method="post" modelAttribute="messageBody">
         <form:hidden path="userId"/>
+        <form:hidden path="id"/>
         <div class="form-group">
             <label for="title">Заголовок</label>
-            <input type="text" name="title" class="form-control" rows="8" id="title" />
+            <input type="text" name="title" class="form-control" rows="8" id="title" value="${messageBody.title}" />
         </div>
 
         <div class="form-group">
             <label for="message">Текст</label>
-            <textarea name="textBody" class="form-control" rows="8" id="message" ></textarea>
+            <textarea name="textBody" class="form-control" rows="8" id="message" >${messageBody.textBody}</textarea>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-default">

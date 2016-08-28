@@ -1,9 +1,12 @@
 package com.alekseysamoylov.note.service.pages;
 
+import com.alekseysamoylov.note.entity.security.User;
 import com.alekseysamoylov.note.entity.text.Message;
+import com.alekseysamoylov.note.model.WebMessage;
 import com.alekseysamoylov.note.repository.MessageRepository;
 import com.alekseysamoylov.note.service.configuration.MyConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,4 +65,6 @@ public class CreateHtmlElementsListImpl implements CreateHtmlElementsList {
         });
         return messageHtmlFragment;
     }
+
+
 }

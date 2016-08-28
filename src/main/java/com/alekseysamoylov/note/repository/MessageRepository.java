@@ -11,4 +11,6 @@ public interface MessageRepository {
     Message getMessage(Long id);
     void save(Message message);
     List<Message> getAllMessages();
+    void update(Message message);
+    void delete(Long id);
 }

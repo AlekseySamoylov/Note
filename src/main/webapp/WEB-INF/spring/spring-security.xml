@@ -14,14 +14,17 @@
     <bean class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler"/>
 
     <security:http auto-config="true" use-expressions="true">
-        <!--<security:form-login login-page="/login"-->
-                             <!--login-processing-url="/login"-->
-                             <!--username-parameter="custom_username"-->
-                             <!--password-parameter="custom_password"-->
-                             <!--default-target-url="/user-page"-->
-                             <!--always-use-default-target="true"-->
-                             <!--authentication-failure-url="/login?error=true"/>-->
+        <security:form-login login-page="/login"
+                             login-processing-url="/login"
+                             username-parameter="custom_username"
+                             password-parameter="custom_password"
+                             default-target-url="/user-messages"
+                             always-use-default-target="true"
+                             authentication-failure-url="/login?error=true"/>
         <security:intercept-url pattern="/add-message" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/user-messages" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/update-message" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/delete-message" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/**" access="permitAll"/>
         <security:access-denied-handler error-page="/403" />
     </security:http>

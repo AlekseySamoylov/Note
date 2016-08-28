@@ -6,8 +6,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="<spring:url value="/assets/css/bootstrap.min.css"/>"/>
-    <script src="<spring:url value="/js/bootstrap.min.js"/>"></script>
+    <link type="text/css" rel="stylesheet" href="<spring:url value="/resources/assets/css/bootstrap.min.css"/>"/>
+    <script src="<spring:url value="/resources/js/bootstrap.min.js"/>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -20,9 +20,8 @@
 
         <ul class="nav navbar-nav">
 
-            <li><a class="btn btn-default" href="<spring:url value="/add-message"/>">Добавить сообщение</a></li>
+            <li><a class="btn btn-default" href="<spring:url value="/login"/>">Войти</a></li>
 
-            <li><a class="btn btn-default" href="<spring:url value="/refresh"/>">Обновить</a></li>
         </ul>
     </div>
 </nav>
