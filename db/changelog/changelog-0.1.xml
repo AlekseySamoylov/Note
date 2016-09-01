@@ -125,9 +125,14 @@
         </createTable>
     </changeSet>
     <changeSet id="0.1-asamoylov-13" author="asamoylov">
-        <addColumn tableName="message">
+        <createTable tableName="message_tag">
+            <column name="message_id" type="integer"></column>
             <column name="tag_id" type="integer" remarks="Идентификатор тега"/>
-        </addColumn>
+        </createTable>
+    </changeSet>
+    <changeSet id="" author="">
+        < create index for tag name
+        & tag_column name
     </changeSet>
 
 </databaseChangeLog>
