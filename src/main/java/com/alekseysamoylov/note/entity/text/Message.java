@@ -1,10 +1,13 @@
 package com.alekseysamoylov.note.entity.text;
 
+import com.alekseysamoylov.note.entity.direction.Tag;
 import com.alekseysamoylov.note.entity.security.User;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by alekseysamoylov on 8/20/16.
@@ -29,4 +32,8 @@ public class Message {
 
     @Column(name = "TEXT_BODY")
     private String text;
+
+    @ManyToMany(mappedBy = "messages")
+    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+    private List<Tag> tags;
 }
