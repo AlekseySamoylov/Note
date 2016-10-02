@@ -13,4 +13,9 @@ public class MyPasswordEncoder {
         return encoder.encode(pass);
     }
 
+    public static void main(String[] args) {
+        MyPasswordEncoder passwordEncoder = new MyPasswordEncoder();
+        System.out.println(passwordEncoder.encodePassword(""));
+    }
+
 }

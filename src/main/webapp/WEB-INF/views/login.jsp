@@ -14,6 +14,8 @@
 <head>
     <title>Login</title>
     <link type="text/css" rel="stylesheet" href="<spring:url value="/resources/assets/css/bootstrap.min.css"/>"/>
+    <link type="text/css" rel="stylesheet" href="<spring:url value="/resources/assets/css/textStyle.css"/>"/>
+    <link type="text/css" rel="stylesheet" href="<spring:url value="/resources/assets/css/style.css"/>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<spring:url value="/resources/js/angular.min.js"/>"></script>
     <script src="<spring:url value="/resources/js/bootstrap.min.js"/>"></script>
