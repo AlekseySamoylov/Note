@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="0.2-asamoylov-1" author="asamoylov">
+        <createTable tableName="price_group" remarks="Группа цен на услуги">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(256)" remarks="Название группы цен">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-2" author="asamoylov">
+        <createIndex tableName="price_group" indexName="idx_price_group">
+            <column name="title"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-3" author="asamoylov">
+        <insert tableName="price_group">
+            <column name="id">1</column>
+            <column name="title">Ремонт двигателя</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-4" author="asamoylov">
+        <insert tableName="price_group">
+            <column name="id">2</column>
+            <column name="title">Ремонт подвески</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-5" author="asamoylov">
+        <insert tableName="price_group">
+            <column name="id">3</column>
+            <column name="title">Ремонт автоэлектрики</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-6" author="asamoylov">
+        <insert tableName="price_group">
+            <column name="id">4</column>
+            <column name="title">Шиномонтаж</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-7" author="asamoylov">
+        <insert tableName="price_group">
+            <column name="id">5</column>
+            <column name="title">Диагностика</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-8" author="asamoylov">
+        <createTable tableName="price" remarks="Конкретная цена на услугу">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="price_group_id" type="integer" remarks="Идентификатор группы услуг">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(256)" remarks="Заголовок">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="varchar(256)" remarks="Цена"/>
+            <column name="details" type="varchar(1024)" remarks="Описание услуги"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-9" author="asamoylov">
+        <createIndex tableName="price" indexName="idx_price">
+            <column name="title"/>
+            <column name="value"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-10" author="asamoylov">
+        <addForeignKeyConstraint baseTableName="price"
+                                 baseColumnNames="price_group_id"
+                                 constraintName="fk_message_wrote_by_user"
+                                 referencedTableName="price_group"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-11" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">1</column>
+            <column name="price_group_id">1</column>
+            <column name="title">Ремонт ГБЦ</column>
+            <column name="value">6999</column>
+            <column name="details">С заменой расходников</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-12" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">2</column>
+            <column name="price_group_id">1</column>
+            <column name="title">Ремонт ДВС</column>
+            <column name="value">7999</column>
+            <column name="details">С заменой цепи ГРМ</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-13" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">3</column>
+            <column name="price_group_id">2</column>
+            <column name="title">Замена шаровой</column>
+            <column name="value">599</column>
+            <column name="details">Ремонт...</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-14" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">4</column>
+            <column name="price_group_id">3</column>
+            <column name="title">Замена сайлентблоков</column>
+            <column name="value">от 2999 рублей</column>
+            <column name="details">Задних рычагов</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-15" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">5</column>
+            <column name="price_group_id">2</column>
+            <column name="title">Ремонт главного тормозного цилиндра</column>
+            <column name="value">999</column>
+            <column name="details">Нормально</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-16" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">6</column>
+            <column name="price_group_id">1</column>
+            <column name="title">Замена ТНВД</column>
+            <column name="value">от 5999 рублей</column>
+            <column name="details">Ремонт</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-17" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">7</column>
+            <column name="price_group_id">1</column>
+            <column name="title">Ремонт форсунок</column>
+            <column name="value">999</column>
+            <column name="details">Работа</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-18" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">8</column>
+            <column name="price_group_id">3</column>
+            <column name="title">Ремонт стартера</column>
+            <column name="value">1999</column>
+            <column name="details">Все ок</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-19" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">9</column>
+            <column name="price_group_id">3</column>
+            <column name="title">Ремонт генератора</column>
+            <column name="value">2999</column>
+            <column name="details">Замена щеток и подшипников</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-20" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">10</column>
+            <column name="price_group_id">4</column>
+            <column name="title">Переобувка 16 радиус</column>
+            <column name="value">1299 рублей</column>
+            <column name="details">Балансировка + пакеты для колес</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-21" author="asamoylov">
+        <insert tableName="price">
+            <column name="id">11</column>
+            <column name="price_group_id">5</column>
+            <column name="title">Диагностика подвески</column>
+            <column name="value">500 рублей</column>
+            <column name="details">Проверка всех</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

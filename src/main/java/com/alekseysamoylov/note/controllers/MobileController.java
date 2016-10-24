@@ -1,9 +1,14 @@
 package com.alekseysamoylov.note.controllers;
 
+import com.alekseysamoylov.note.entity.price.PriceGroup;
+import com.alekseysamoylov.note.repository.PriceGroupRepository;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by alekseysamoylov on 10/1/16.
@@ -11,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 public class MobileController {
+
+    @Autowired
+    PriceGroupRepository priceGroupRepository;
 
     @CrossOrigin
     @RequestMapping(value = "/ios-get-user")
@@ -26,6 +34,13 @@ public class MobileController {
     User saveTestUser(@RequestBody User user) {
         user.setUsername("Hello " + user.getUsername());
         return user;
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/prices")
+    @ResponseBody
+    public List<PriceGroup> getPrices() throws Exception {
+        return priceGroupRepository.findAllFetchLazy();
     }
 
 

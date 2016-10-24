@@ -214,4 +214,10 @@
             <where>id = 1</where>
         </update>
     </changeSet>
+    <changeSet id="0.1-asamoylov-28" author="asamoylov">
+        <update tableName="users">
+            <column name="pass">b551aecb1f70bd77238ca392083a549f347fdeeecb757b726181ec8449f1aa52849f9044c0ce06f6
+            </column>
+        </update>
+    </changeSet>
 </databaseChangeLog>
