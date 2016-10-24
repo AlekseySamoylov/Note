@@ -220,4 +220,10 @@
             </column>
         </update>
     </changeSet>
+    <changeSet id="0.1-asamoylov-29" author="asamoylov">
+        <update tableName="users">
+            <column name="pass">43751536c7456381df363cb5b10b02b53d6367c9540a172eeefb68a7e6f777bf9851bf24ea822411
+            </column>
+        </update>
+    </changeSet>
 </databaseChangeLog>
